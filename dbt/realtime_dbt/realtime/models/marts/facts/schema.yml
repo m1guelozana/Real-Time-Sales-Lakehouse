@@ -1,0 +1,68 @@
+version: 2
+
+models:
+
+  - name: fact_orders
+    description: "Tabela fato principal de vendas (granularidade: order_item)"
+    columns:
+      - name: order_item_sk
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_sk
+
+      - name: product_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_products')
+              field: product_sk
+
+      - name: seller_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_sellers')
+              field: seller_sk
+
+      - name: date_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_sk
+
+  - name: fact_payments
+    description: "Tabela fato de pagamentos (granularidade: pagamento individual)"
+    columns:
+      - name: payment_sk
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_sk
+
+      - name: payment_type_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_payment_type')
+              field: payment_type_sk
+
+      - name: date_sk
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_date')
+              field: date_sk

@@ -1,0 +1,12 @@
+realtime:
+  outputs:
+    dev:
+      dbname: realtime_dw
+      host: postgres
+      password: realtime123
+      port: 5432
+      schema: public
+      threads: 4
+      type: postgres
+      user: realtime
+  target: dev

@@ -1,0 +1,68 @@
+version: 2
+
+models:
+
+  - name: dim_customers
+    description: "Dimensão de clientes"
+    columns:
+      - name: customer_sk
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_products
+    description: "Dimensão de produtos"
+    columns:
+      - name: product_sk
+        tests:
+          - not_null
+          - unique
+
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_sellers
+    description: "Dimensão de vendedores"
+    columns:
+      - name: seller_sk
+        tests:
+          - not_null
+          - unique
+
+      - name: seller_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_date
+    description: "Dimensão de datas"
+    columns:
+      - name: date_sk
+        tests:
+          - not_null
+          - unique
+
+      - name: full_date
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_payment_type
+    description: "Dimensão de tipos de pagamento"
+    columns:
+      - name: payment_type_sk
+        tests:
+          - not_null
+          - unique
+
+      - name: payment_type
+        tests:
+          - not_null
+          - unique
